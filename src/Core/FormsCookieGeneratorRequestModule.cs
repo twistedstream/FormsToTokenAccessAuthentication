@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Linq;
-using System.Text.RegularExpressions;
 using System.Web;
-using System.Web.Security;
 
 namespace TS.FormsToTokenAccessAuthentication
 {
@@ -29,72 +26,10 @@ namespace TS.FormsToTokenAccessAuthentication
         private static void OnBeginRequest(object sender, EventArgs eventArgs)
         {
             var httpContext = ((HttpApplication) sender).Context;
+            var wrapper = new HttpContextWrapper(httpContext);
 
-            // exit if request doesn't contain the auth header
-            if (httpContext.Request.Headers.AllKeys.All(k => k != Constants.AuthorizationHeaderName))
-                return;
-
-            var authValue = httpContext.Request.Headers.Get(Constants.AuthorizationHeaderName);
-
-            // detect scheme
-            const string schemeName = "scheme";
-            const string parameterName = "parameter";
-            var schemePattern = string.Format(
-                "^(?<{0}>\\S+)\\s+(?<{1}>.*)",
-                schemeName, 
-                parameterName);
-            var schemeMatchs = Regex.Matches(authValue, schemePattern);
-            if (schemeMatchs.Count == 1)
-            {
-                var schemeMatch = schemeMatchs[0];
-                var scheme = schemeMatch.Groups[schemeName].Value;
-                if (scheme == Constants.TokenSchemeName)
-                {
-                    var tokenAuthParameter = schemeMatch.Groups[parameterName].Value;
-
-                    var tokenAuthPattern = string.Format(
-                        "{0}=\"(?<{0}>.*)\",\\s*{1}=\"(?<{1}>.*)\"",
-                        Constants.TokenAttributeName,
-                        Constants.CoverageAttributeName);
-                    var tokenAuthMatches = Regex.Matches(authValue, tokenAuthPattern);
-                    if (tokenAuthMatches.Count == 1)
-                    {
-                        var tokenAuthMatch = tokenAuthMatches[0];
-                        var coverage = tokenAuthMatch.Groups[Constants.CoverageAttributeName].Value;
-                        if (coverage == Constants.CoverageNoneName)
-                        {
-                            var token = tokenAuthMatch.Groups[Constants.TokenAttributeName].Value;
-                            if (!string.IsNullOrWhiteSpace(token))
-                            {
-                                var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, token);
-                                httpContext.Request.Cookies.Add(cookie);
-                            }
-                            else
-                                WriteError(httpContext, "Token is empty");
-                        }
-                        else
-                            WriteError(httpContext, "Unsupported coverage name: " + coverage);
-                    }
-                    else
-                        WriteError(httpContext,
-                                   "Unsupported token authentication parameter value: " + tokenAuthParameter);
-                }
-                else
-                    WriteError(httpContext, "Unsupported authentication scheme: " + scheme);
-            }
-            else
-            {
-                if (authValue == Constants.TokenSchemeName)
-                    WriteError(httpContext, "Missing token parameter value");
-                else
-                    WriteError(httpContext, "Unsupported authentication method: " + authValue);
-            }
-        }
-
-        private static void WriteError(HttpContext httpContext, string message)
-        {
-            // write error message to throw-away request header so it can be picked up by message handler later in pipeline
-            httpContext.Request.Headers.Add(Constants.ErrorMessageTempHeaderName, message);
+            IFormsCookieGenerator cookieGenerator = new FormsCookieGenerator();
+            cookieGenerator.Generate(wrapper.Request);
         }
 
         void IHttpModule.Dispose()
