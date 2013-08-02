@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>TS.FormsToTokenAccessAuthentication</id>
+    <title>FormsToTokenAccessAuthentication</title>
+    <description>Provides a simple implementation of the HTTP Token Access Authentication scheme for use with ASP.NET Web API by leveraging the ASP.NET Form Authentication engine.</description>
+
+    <!-- dynamic: injected by build -->
+    <version></version>
+    <copyright></copyright>
+    
+    <!-- static -->
+    <authors>twistedstream</authors>
+    <licenseUrl>https://raw.github.com/twistedstream/FormsToTokenAccessAuthentication/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/twistedstream/FormsToTokenAccessAuthentication</projectUrl>
+    <iconUrl>https://raw.github.com/twistedstream/FormsToTokenAccessAuthentication/master/build/Logo-NuGet.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <tags>asp.net web-api web api token access authentication forms</tags>
+    <releaseNotes>Intial release candidate.</releaseNotes>  
+    <dependencies>
+      <dependency id="TS.FormsToTokenAccessAuthentication.Core" version="1.0" />
+    </dependencies>	
+  </metadata>
+  <files>
+    <file src="readme.txt" />
+    <file src="content\**\*.* " target="content" />
+  </files>
+</package>

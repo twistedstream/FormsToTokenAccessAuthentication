@@ -1,0 +1,10 @@
+<configuration>
+  <appSettings>
+    <add key="TokenAccessAuthentication-Realm" value="http://your-web-api.com/url-here" />
+  </appSettings>
+  <system.webServer>
+    <modules>
+      <add name="FormsCookieGeneratorRequestModule" type="TS.FormsToTokenAccessAuthentication.FormsCookieGeneratorRequestModule, TS.FormsToTokenAccessAuthentication.Core" />
+    </modules>
+  </system.webServer>
+</configuration>
