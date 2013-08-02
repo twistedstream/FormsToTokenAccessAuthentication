@@ -38,7 +38,7 @@ namespace TS.FormsToTokenAccessAuthentication
         protected async override Task<HttpResponseMessage> SendAsync(
             HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            // call the inner handler.
+            // call the inner handler
             var response = await base.SendAsync(request, cancellationToken);
 
             var is401 = response.StatusCode == HttpStatusCode.Unauthorized;
@@ -71,7 +71,7 @@ namespace TS.FormsToTokenAccessAuthentication
                 errorMessage = request.Headers.GetValues(Constants.ErrorMessageTempHeaderName).First();
             else if (is401)
                 if (request.Headers.Authorization == null)
-                    errorMessage = string.Format("{0} request header is missing",
+                    errorMessage = string.Format("{0} request header was missing",
                                                  Constants.AuthorizationHeaderName);
                 else
                     errorMessage = "Token is invalid or has expired";

@@ -75,6 +75,7 @@
     <Compile Include="FormsCookieGeneratorTests.cs" />
     <Compile Include="FormsTokenGeneratorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TokenErrorResponseMessageHandlerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
