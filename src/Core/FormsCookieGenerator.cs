@@ -9,7 +9,7 @@ namespace TS.FormsToTokenAccessAuthentication
     /// <summary>
     /// The default implementation of the <see cref="IFormsCookieGenerator"/> interface.
     /// </summary>
-    public class FormsCookieGenerator 
+    public sealed class FormsCookieGenerator 
         : IFormsCookieGenerator
     {
         void IFormsCookieGenerator.Generate(HttpRequestBase request)
