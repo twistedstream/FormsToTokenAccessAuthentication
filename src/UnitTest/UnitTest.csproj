@@ -72,6 +72,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>CommonAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="FormsCookieGeneratorTests.cs" />
     <Compile Include="FormsTokenGeneratorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

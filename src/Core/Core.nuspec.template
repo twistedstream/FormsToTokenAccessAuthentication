@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <!-- dynamic: csproj file -->
+    <id>$id$</id>
+    <title>$title$</title>
+    <description>$description$</description>
+
+    <!-- dynamic: injected by build -->
+    <version></version>
+    <copyright></copyright>
+    
+    <!-- static -->
+    <authors>twistedstream</authors>
+    <licenseUrl>https://raw.github.com/twistedstream/FormsToTokenAccessAuthentication/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/twistedstream/FormsToTokenAccessAuthentication</projectUrl>
+    <iconUrl>https://raw.github.com/twistedstream/FormsToTokenAccessAuthentication/master/build/Logo-NuGet.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <tags>asp.net web-api web api token access authentication forms</tags>
+    <releaseNotes>Intial release candidate.</releaseNotes>	
+  </metadata>
+</package>

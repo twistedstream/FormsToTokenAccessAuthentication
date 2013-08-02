@@ -68,6 +68,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>CommonAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="AuthenticationToken.cs" />
     <Compile Include="FormsCookieGenerator.cs" />
     <Compile Include="FormsTokenGenerator.cs" />
@@ -81,6 +84,7 @@
     <Compile Include="WebSecurityWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Core.nuspec.template" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
