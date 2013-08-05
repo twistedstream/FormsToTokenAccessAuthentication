@@ -4,10 +4,6 @@
   <PropertyGroup>
     <Input_Product>FormsToTokenAccessAuthentication</Input_Product>
     <Input_Company>Twisted Stream Technologies, Inc.</Input_Company>
-    <Input_VersionMajor>1</Input_VersionMajor>
-    <Input_VersionMinor>0</Input_VersionMinor>
-    <Input_VersionRevision>1</Input_VersionRevision>
-    <Input_VersionInformation>RC</Input_VersionInformation>
   </PropertyGroup>
   
   <!-- Build / package configuration -->
