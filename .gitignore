@@ -113,6 +113,8 @@ Thumbs.db
 
 # Folder config file
 Desktop.ini
+
 # Project-specific
 CommonAssemblyInfo.cs
 /build/out
+App_Data/
