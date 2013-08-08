@@ -14,7 +14,7 @@ using TS.FormsToTokenAccessAuthentication.Sample.Service.Models;
 namespace TS.FormsToTokenAccessAuthentication.Sample.Service.Controllers
 {
     [Authorize]
-    [InitializeSimpleMembership]
+    [MvcInitializeSimpleMembership]
     public class AccountController : Controller
     {
         //

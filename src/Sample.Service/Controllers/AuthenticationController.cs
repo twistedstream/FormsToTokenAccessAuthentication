@@ -1,11 +1,12 @@
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using TS.FormsToTokenAccessAuthentication.Sample.Service.Filters;
 using TS.FormsToTokenAccessAuthentication.Sample.Service.Models;
-using TS.FormsToTokenAccessAuthentication;
 
-namespace TS.FormsToTokenAccessAuthentication.Sample.Service.App_Start
+namespace TS.FormsToTokenAccessAuthentication.Sample.Service.Controllers
 {
+    [WebApiInitializeSimpleMembership]
     public class AuthenticationController
     	: ApiController
     {
