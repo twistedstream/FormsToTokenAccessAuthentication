@@ -22,7 +22,7 @@ namespace TS.FormsToTokenAccessAuthentication.Sample.Client
             // init client
             _client = new HttpClient
                 {
-                    BaseAddress = new Uri("http://localhost.fiddler:8080/api/"),
+                    BaseAddress = new Uri("http://localhost:8080/api/"),
                 };
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
