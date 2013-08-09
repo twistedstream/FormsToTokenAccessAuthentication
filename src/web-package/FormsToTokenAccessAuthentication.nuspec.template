@@ -18,7 +18,7 @@
     <tags>asp.net web-api web api token access authentication forms</tags>
     <releaseNotes>Intial release candidate.</releaseNotes>  
     <dependencies>
-      <dependency id="TS.FormsToTokenAccessAuthentication.Core" version="1.0" />
+      <dependency id="TS.FormsToTokenAccessAuthentication.Core" version="1.1.2" />
     </dependencies>	
   </metadata>
   <files>
